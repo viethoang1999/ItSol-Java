@@ -15,7 +15,9 @@ public class Test {
         System.out.println("1.In và xuất ra danh sách bạn đọc");
         System.out.println("2.In và xuất ra danh sách sách");
         System.out.println("3.Mượn sách");
-        System.out.println("4.");
+        System.out.println("4.Sắp xếp danh sách quản lý mượn sách");
+        System.out.println("5.Tìm kiếm và hiển thị danh sách theo tên bạn đọc");
+        System.out.println("6.Thoát");
     }
 
     public static void main(String[] args) {
@@ -54,6 +56,15 @@ public class Test {
                     }
                 case 3:
                     muonSach();
+                    break;
+                case 4:
+                    sapXepDanhSachQuanLy();
+                    break;
+                case 5:
+                    timKiemVaHienthiDanhSachTheoTenBanDoc();
+                    break;
+                case 6:
+                    System.exit(0);
 
 
             }
@@ -77,10 +88,10 @@ public class Test {
             do {
                 n = new Scanner(System.in).nextInt();
                 if (n < 0 || n > 5 || n > sachs.length) {
-                    System.out.println("Nhập lại số lượng đầu sách lớn hơn 0 , nhỏ hơn 5 và tổng sách: "+n);
+                    System.out.println("Nhập lại số lượng đầu sách lớn hơn 0 , nhỏ hơn 5 và tổng sách: " + n);
                     check = false;
                 }
-                
+
             } while (!check);
             Sach[] sachList = new Sach[n];
             int[] soLuongList = new int[n];
@@ -125,6 +136,106 @@ public class Test {
             }
         }
         return null;
+    }
+
+    private static void sapXepTheoTenBanDoc() {
+        if (quanLySachs == null || quanLySachs.length == 0) {
+            System.out.println("Bạn cần nhập danh sach trước khi sắp xếp");
+
+        }
+        for (int i = 0; i < quanLySachs.length; i++) {
+            for (int j = i + 1; j < quanLySachs.length; j++) {
+                if (quanLySachs[i].getBanDoc().getName().compareToIgnoreCase(quanLySachs[j].getBanDoc().getName()) > 0) {
+                    QuanLySach temp = quanLySachs[i];
+                    quanLySachs[i] = quanLySachs[j];
+                    quanLySachs[j] = temp;
+                }
+
+            }
+        }
+        for (QuanLySach quanlySach : quanLySachs
+        ) {
+            System.out.println(quanlySach);
+        }
+    }
+
+    private static void sapXepTheoSoLuongSachGiamDan() {
+        if (quanLySachs == null || quanLySachs.length == 0) {
+            System.out.println("Bạn cần nhập danh sach trước khi sắp xếp");
+
+        }
+        for (QuanLySach quanLySach : quanLySachs) {
+            Sach[] sachs = quanLySach.getSach();
+            int[] soluong = quanLySach.getSoLuong();
+            int temp = 0;
+            for (int i = 0; i < sachs.length; i++) {
+                temp += soluong[i];
+
+            }
+            quanLySach.setTongSach(temp);
+        }
+        for (int i = 0; i < sachs.length; i++) {
+            for (int j = i + 1; j < sachs.length; j++) {
+                if (quanLySachs[i].getTongSach() < quanLySachs[j].getTongSach()) {
+                    QuanLySach temp = quanLySachs[i];
+                    quanLySachs[i] = quanLySachs[j];
+                    quanLySachs[j] = temp;
+                }
+            }
+        }
+        for (QuanLySach quanLySach : quanLySachs) {
+            System.out.println(quanLySach);
+        }
+    }
+
+    private static void sapXepDanhSachQuanLy() {
+        if (quanLySachs == null || quanLySachs.length == 0) {
+            System.out.println("Bạn cần nhập danh sách bạn đọc và đầu sách trước khi cho mượn!");
+            return;
+        }
+        do {
+            int n;
+            System.out.println("1. Theo tên bạn đọc.");
+            System.out.println("2. Theo số lượng cuốn sách được mượn (giảm dần).");
+            System.out.println("3. Thoát chức năng sắp xếp.");
+            System.out.print("Xin mời chọn chức năng: ");
+            do {
+                n = new Scanner(System.in).nextInt();
+                if (n >= 1 && n <= 3) {
+                    break;
+                }
+                System.out.print("Chức năng chọn không hợp lệ, vui lòng chọn lại: ");
+            } while (true);
+            switch (n) {
+                case 1:
+                    sapXepTheoTenBanDoc();
+                    break;
+                case 2:
+                    sapXepTheoSoLuongSachGiamDan();
+                    break;
+                case 3:
+                    return;
+            }
+        } while (true);
+    }
+
+    private static void timKiemVaHienthiDanhSachTheoTenBanDoc() {
+        if (quanLySachs == null || quanLySachs.length == 0) {
+            System.out.println("Bạn cần nhập danh sach trước khi sắp xếp");
+
+        }
+        System.out.println("Nhập tên bạn muốn tìm kiếm: ");
+        String temp = new Scanner(System.in).nextLine();
+        boolean check = false;
+        for (QuanLySach quanLySach : quanLySachs) {
+            if (quanLySach.getBanDoc().getName().equals(temp)) {
+                System.out.println(quanLySach.getBanDoc());
+                check = true;
+            }
+            if (!check) {
+                System.out.println("Không tìm thấy bạn đọc có tên '" + temp + "' trong danh sách mượn sách");
+            }
+        }
     }
 
 }
