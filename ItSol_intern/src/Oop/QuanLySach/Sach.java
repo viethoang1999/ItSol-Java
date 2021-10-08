@@ -13,10 +13,11 @@ public class Sach {
     private  static int auId=100000;
 
     public Sach() {
+        this.idBook = auId++;
     }
 
     public Sach(int idBook, String namebook, String nameAuthor, String specialized, LocalDate year) {
-        this.idBook = idBook;
+        this.idBook = auId++;
         this.namebook = namebook;
         this.nameAuthor = nameAuthor;
         this.specialized = specialized;

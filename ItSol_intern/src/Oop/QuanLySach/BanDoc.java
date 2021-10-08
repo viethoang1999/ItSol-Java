@@ -10,7 +10,10 @@ public class BanDoc {
     private String type;
     private static int autorIncrement = 10000;
 
-    public BanDoc(){
+    public BanDoc(
+
+    ){
+        this.id=autorIncrement++;
     }
 
     public BanDoc(int id, String name, String address, String phone, String type) {
