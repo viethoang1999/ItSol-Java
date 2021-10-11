@@ -2,7 +2,7 @@ package Arr;
 
 import java.util.Scanner;
 
-public class App2 {
+public class App7 {
     public static void input(int[] arr, int n) {
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < n; i++) {
@@ -18,41 +18,51 @@ public class App2 {
         }
     }
 
-    public static void sapxeptangdan(int[] a, int n) {
+    public static void sapXep(int[] arr, int n) {
         int temp;
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
-                if (a[i] > a[j]) {
-                    temp = a[i];
-                    a[i] = a[j];
-                    a[j] = temp;
+                if (arr[i] > arr[j]) {
+                    temp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = temp;
                 }
             }
         }
     }
-    public static void sapxepgiamdan(int[] a, int n) {
-        int temp;
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (a[i] < a[j]) {
-                    temp = a[i];
-                    a[i] = a[j];
-                    a[j] = temp;
+
+    public static int[] them(int[] arr, int n, int x) {
+        int index = n - 1;
+        int b[] = new int[n + 1];
+        boolean check = false;
+        for (int i = n; i >= 0; i--) {
+            if (index > -1 && arr[index] > x) {
+                b[i] = arr[index--];
+            } else {
+                if (!check) {
+                    b[i] = x;
+                    check = true;
+                } else {
+                    b[i] = arr[index--];
                 }
             }
         }
+        return b;
     }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập số phần tử trong mảng: ");
         int n = scanner.nextInt();
+        int x = scanner.nextInt();
         scanner.nextLine();
         int[] arr = new int[n];
-        int [] arr1=new int[n];
+        int[] arr1 = new int[n];
         input(arr, n);
+        sapXep(arr, n);
+        arr = them(arr, n, x);
         output(arr, n);
-        sapxepgiamdan(arr,n);
-        sapxeptangdan(arr,n);
-        }
+
     }
 
+}
