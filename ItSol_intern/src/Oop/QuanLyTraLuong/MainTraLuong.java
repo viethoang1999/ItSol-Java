@@ -20,7 +20,6 @@ public class MainTraLuong {
         Scanner scanner = new Scanner(System.in);
         boolean check = true;
         do {
-
             Menu();
             System.out.println("Nhập sự lựa chọn của bạn");
             int number = scanner.nextInt();
@@ -29,6 +28,7 @@ public class MainTraLuong {
                 case 1:
                     inputMonHoc();
                     outputMonHoc();
+                    check=true;
                     break;
                 case 2:
                     intputGiangVien();
@@ -48,7 +48,7 @@ public class MainTraLuong {
                 case 6:
                     System.exit(0);
             }
-        } while (!check);
+        } while (check);
 
     }
 
