@@ -28,7 +28,7 @@ public class MainTraLuong {
                 case 1:
                     inputMonHoc();
                     outputMonHoc();
-                    check=true;
+                    check = true;
                     break;
                 case 2:
                     intputGiangVien();

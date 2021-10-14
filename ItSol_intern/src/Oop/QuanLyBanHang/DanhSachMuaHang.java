@@ -1,7 +1,7 @@
 package Oop.QuanLyBanHang;
 
 public class DanhSachMuaHang {
-    private  KhachHang khachHangs;
+    private KhachHang khachHangs;
     private MatHang[] matHangs;
     private int[] SoLuong;
     private int tong;
@@ -44,5 +44,5 @@ public class DanhSachMuaHang {
     public void setTong(int tong) {
         this.tong = tong;
     }
-    
+
 }

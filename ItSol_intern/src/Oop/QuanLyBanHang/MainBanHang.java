@@ -29,7 +29,7 @@ public class MainBanHang {
                 case 1:
                     inputMatHang();
                     outputMatHang();
-                    check=true;
+                    check = true;
                     break;
                 case 2:
                     inputKhachHang();
@@ -58,24 +58,28 @@ public class MainBanHang {
         }
 
     }
-    public static void outputMatHang(){
-        for (int i = 0; i < matHangs.length ; i++) {
+
+    public static void outputMatHang() {
+        for (int i = 0; i < matHangs.length; i++) {
             matHangs[i].output();
         }
     }
-    public static void inputKhachHang(){
+
+    public static void inputKhachHang() {
         System.out.println("Nhập số khách hàng: ");
-        int khachHang=new Scanner(System.in).nextInt();
-        khachHangs=new KhachHang[khachHang];
-        for (int i = 0; i < khachHangs.length ; i++) {
-            khachHangs[i]=new KhachHang();
+        int khachHang = new Scanner(System.in).nextInt();
+        khachHangs = new KhachHang[khachHang];
+        for (int i = 0; i < khachHangs.length; i++) {
+            khachHangs[i] = new KhachHang();
             khachHangs[i].input();
         }
     }
-    public static void outputKhachHang(){
+
+    public static void outputKhachHang() {
         for (int i = 0; i < khachHangs.length; i++) {
             khachHangs[i].output();
-        };
+        }
+        ;
     }
 
 }

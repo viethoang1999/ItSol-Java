@@ -40,19 +40,20 @@ public abstract class Nguoi {
         this.sdt = sdt;
     }
 
-    public void input(){
-        Scanner scanner=new Scanner(System.in);
+    public void input() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập Ten: ");
-        this.ten=scanner.nextLine();
+        this.ten = scanner.nextLine();
         System.out.println("Nhập địa chỉ: ");
-        this.diachi=scanner.nextLine();
+        this.diachi = scanner.nextLine();
         System.out.println("Nhập số điện thoại: ");
-        this.sdt=scanner.nextLine();
+        this.sdt = scanner.nextLine();
     }
-    public void output(){
-        System.out.println("Tên: "+this.ten);
-        System.out.println("Địa chỉ: "+this.diachi);
-        System.out.println("Số điện thoại: "+this.sdt);
+
+    public void output() {
+        System.out.println("Tên: " + this.ten);
+        System.out.println("Địa chỉ: " + this.diachi);
+        System.out.println("Số điện thoại: " + this.sdt);
     }
 
     @Override

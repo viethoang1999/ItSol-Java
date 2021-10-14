@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class KhachHang extends Nguoi {
     private int makhachhang;
     private String nhomkhachhang;
-    private static int autocrementId=10000;
+    private static int autocrementId = 10000;
 
     public KhachHang(String ten, String diachi, String sdt, int makhachhang, String nhomkhachhang) {
         super(ten, diachi, sdt);
@@ -35,39 +35,42 @@ public class KhachHang extends Nguoi {
 
     @Override
     public void input() {
-        Scanner scanner=new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         super.input();
         System.out.println("Nhập Nhóm khách hàng: ");
         System.out.println("Mua lẻ");
         System.out.println("Mua buôn");
         System.out.println("Mua qua mạng");
-        boolean check =true;
+        boolean check = true;
         do {
-            int choose=scanner.nextInt();
+            int choose = scanner.nextInt();
             scanner.nextLine();
-            switch (choose){
-                case 1: this.setNhomkhachhang(NhomKhachHang.MUA_LE);
+            switch (choose) {
+                case 1:
+                    this.setNhomkhachhang(NhomKhachHang.MUA_LE);
                     System.out.println("Mua lẻ");
-                    check=true;
+                    check = true;
                     break;
-                case 2:this.setNhomkhachhang(NhomKhachHang.MUA_BUON);
+                case 2:
+                    this.setNhomkhachhang(NhomKhachHang.MUA_BUON);
                     System.out.println("Mua buôn");
-                    check=true;
+                    check = true;
                     break;
-                case 3:this.setNhomkhachhang(NhomKhachHang.MUA_QUA_MANG);
+                case 3:
+                    this.setNhomkhachhang(NhomKhachHang.MUA_QUA_MANG);
                     System.out.println("Mua qua mạng");
-                    check=true;
+                    check = true;
                     break;
 
             }
-        }while (!true);
+        } while (!true);
         KhachHang.autocrementId++;
     }
 
     @Override
     public void output() {
         super.output();
-        System.out.println("Mã khách hàng: "+this.makhachhang);
-        System.out.println("Nhóm khách hàng: "+this.nhomkhachhang);
+        System.out.println("Mã khách hàng: " + this.makhachhang);
+        System.out.println("Nhóm khách hàng: " + this.nhomkhachhang);
     }
 }

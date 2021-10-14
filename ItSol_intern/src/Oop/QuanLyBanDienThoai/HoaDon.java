@@ -7,6 +7,15 @@ public class HoaDon {
     private DienThoai[] dienThoais;
     private int soluong;
     private int tong;
+    private float tinhTong;
+
+    public float getTinhTong() {
+        return tinhTong;
+    }
+
+    public void setTinhTong(float tinhTong) {
+        this.tinhTong = tinhTong;
+    }
 
     public HoaDon(KhachHang khachHang, DienThoai[] dienThoais, int soluong) {
         this.khachHang = khachHang;
@@ -53,6 +62,7 @@ public class HoaDon {
                 ", dienThoais=" + Arrays.toString(dienThoais) +
                 ", soluong=" + soluong +
                 ", tong=" + tong +
+                ", tinhTong=" + tinhTong +
                 '}';
     }
 }
