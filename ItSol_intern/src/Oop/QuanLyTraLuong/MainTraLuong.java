@@ -79,7 +79,7 @@ public class MainTraLuong {
         giangViens = new GiangVien[giangvien];
         for (int i = 0; i < giangViens.length; i++) {
             giangViens[i] = new GiangVien();
-            giangViens[i].ouput();
+            giangViens[i].input();
         }
     }
 
