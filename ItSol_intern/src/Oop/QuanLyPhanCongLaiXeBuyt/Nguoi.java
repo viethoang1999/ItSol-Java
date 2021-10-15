@@ -12,6 +12,9 @@ public class Nguoi {
         this.diaChi = diaChi;
         this.sdt = sdt;
     }
+    public Nguoi(){
+
+    }
 
     public String getHoTen() {
         return hoTen;
