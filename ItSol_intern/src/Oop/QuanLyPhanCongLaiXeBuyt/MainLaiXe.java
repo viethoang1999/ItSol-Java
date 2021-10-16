@@ -237,7 +237,7 @@ public class MainLaiXe {
         ) {
             double tong = 0;
             for (int i = 0; i < bangPhanCong.getTuyenList().size(); i++) {
-                tong = tong + bangPhanCong.getSoLuotChay().get(i) * bangPhanCong.getTuyenList().get(i).getKhoangCach()
+                tong = tong + bangPhanCong.getSoLuotChay().get(i) * bangPhanCong.getTuyenList().get(i).getKhoangCach();
             }
             System.out.println(bangPhanCong.getLaiXe().getMaLaiXe() + "" + bangPhanCong.getLaiXe().getHoTen() + " quãng đường đi được:  " + tong + "cây ");
         }
