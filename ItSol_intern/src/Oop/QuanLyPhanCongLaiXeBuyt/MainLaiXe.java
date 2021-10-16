@@ -9,6 +9,12 @@ public class MainLaiXe {
 
     public static void Menu() {
         System.out.println("----Quản Lý Phân Công Lái Xe-----");
+        System.out.println("1. Nhập và xuất thông tin lái xe");
+        System.out.println("2. Nhập và xuất thông tin tuyến ");
+        System.out.println("3. In danh sách phân công lái xe ");
+        System.out.println("4. Sắp xếp danh sách ");
+        System.out.println("5.Tổng khoảng cách xe chạy trong ngày c=ủa mỗi lái xe ");
+        System.out.println("6.Tháouy");
     }
 
     public static void main(String[] args) {
